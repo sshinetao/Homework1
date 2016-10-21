@@ -1,0 +1,117 @@
+﻿@model Homework1.Models.Song
+
+@{
+    ViewBag.Title = "音乐 - 详情";
+}
+
+<div class="row-fluid" style="margin-top:15px;">
+    <div class="span12">
+        <ol class="breadcrumb">
+            <li><a href="/HOme/Index">首页</a></li>
+            <li><a href="/Songs/Index">音乐</a></li>
+            <li class="active">详情</li>
+        </ol>
+    </div>
+</div>
+
+<div>
+    <fieldset>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="row-fluid">
+                    <div class="col-md-3">
+                        <dl>
+                            <dt>
+                                @*@Html.DisplayNameFor(model => model.photo)*@
+                            </dt>
+
+                            <dd>
+                                @*string imageName = "/uploads/" + item.id + ".jpg";*@
+                                @Html.DisplayFor(model => model.sphoto)
+
+                                <a href="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg">
+                                    <img src="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg" width="200" height="100" />
+                                </a>
+                                @*<a href="@Url.Content(@imageName)"><img src="@Url.Content(@imageName)" width="75" height="50" /></a>*@
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-9">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sTitle)
+                            </dt>
+
+                            <dd>
+                                <b> @Html.DisplayFor(model => model.sTitle)</b>
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sGenre)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sGenre)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sReleaseDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sReleaseDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sCountry)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sCountry)
+                            </dd>
+
+                            <dt>
+                                @*@Html.DisplayNameFor(model => model.photo)*@
+                            </dt>
+
+                            <dd>
+
+                                @*@Html.DisplayFor(model => model.photo)
+
+                                    <a href="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg">
+                                        <img src="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg" width="75" height="50" />
+                                    </a>*@
+
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sContent)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sContent)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sLink)
+                            </dt>
+
+                            <dd>
+                                <a href="//@Html.DisplayFor(model => model.sLink)">下载</a>
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </fieldset>
+</div>
+<p>
+
+    @Html.ActionLink("返回", "Index")
+</p>

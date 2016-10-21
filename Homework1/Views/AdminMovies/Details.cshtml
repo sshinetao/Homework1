@@ -1,0 +1,110 @@
+﻿@model Homework1.Models.Movie
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h4>Movie</h4>
+        <hr />
+        <fieldset>
+            <div class="container-fluid">
+                <div class="row-fluid">
+
+                    <div class="row-fluid">
+                        <div class="col-md-3">
+                            <dl>
+                                <dt>
+                                    @*@Html.DisplayNameFor(model => model.photo)*@
+                                </dt>
+
+                                <dd>
+                                    @*string imageName = "/uploads/" + item.id + ".jpg";*@
+                                    @Html.DisplayFor(model => model.photo)
+
+                                    <a href="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg">
+                                        <img src="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg" width="200" height="100" />
+                                    </a>
+                                    @*<a href="@Url.Content(@imageName)"><img src="@Url.Content(@imageName)" width="75" height="50" /></a>*@
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-9">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mTitle)
+                                </dt>
+
+                                <dd>
+                                    <b> @Html.DisplayFor(model => model.mTitle)</b>
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mGenre)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.mGenre)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mReleaseDate)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.mReleaseDate)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mCountry)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.mCountry)
+                                </dd>
+
+
+
+
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mContent)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.mContent)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.mLink)
+                                </dt>
+
+                                <dd>
+                                    <a href="//@Html.DisplayFor(model => model.mLink)">下载</a>
+                                </dd>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </fieldset>
+    </div>
+    <p>
+        @Html.ActionLink("编辑", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("返回", "Index")
+    </p>
+</body>
+</html>

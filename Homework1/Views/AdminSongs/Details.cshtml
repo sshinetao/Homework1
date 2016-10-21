@@ -1,0 +1,112 @@
+﻿@model Homework1.Models.Song
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    Layout = null;
+}
+
+<h2>Details</h2>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<div>
+    <fieldset>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <div class="row-fluid">
+                    <div class="col-md-3">
+                        <dl>
+                            <dt>
+                                @*@Html.DisplayNameFor(model => model.photo)*@
+                            </dt>
+
+                            <dd>
+                                @*string imageName = "/uploads/" + item.id + ".jpg";*@
+                                @Html.DisplayFor(model => model.sphoto)
+
+                                <a href="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg">
+                                    <img src="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg" width="200" height="100" />
+                                </a>
+                                @*<a href="@Url.Content(@imageName)"><img src="@Url.Content(@imageName)" width="75" height="50" /></a>*@
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-9">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sTitle)
+                            </dt>
+
+                            <dd>
+                                <b> @Html.DisplayFor(model => model.sTitle)</b>
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sGenre)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sGenre)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sReleaseDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sReleaseDate)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sCountry)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sCountry)
+                            </dd>
+
+                            <dt>
+                                @*@Html.DisplayNameFor(model => model.photo)*@
+                            </dt>
+
+                            <dd>
+
+                                @*@Html.DisplayFor(model => model.photo)
+
+                                    <a href="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg">
+                                        <img src="~/uploads//@(Html.DisplayFor(model=>model.id)).jpg" width="75" height="50" />
+                                    </a>*@
+
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sContent)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.sContent)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.sLink)
+                            </dt>
+
+                            <dd>
+                                <a href="//@Html.DisplayFor(model => model.sLink)">下载</a>
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </fieldset>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("删除", "Index")
+</p>

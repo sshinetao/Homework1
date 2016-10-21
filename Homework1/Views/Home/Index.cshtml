@@ -1,0 +1,123 @@
+﻿@model  Homework1.Models.MediaViewModels
+@{
+    ViewBag.Title = "首页";
+}
+<style>
+
+    img{
+        width:100%
+    }
+</style>
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/respond.min.js"></script>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="carousel slide" id="carousel1" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-slide-to="0" data-target="#carousel1" class="active">
+                    </li>
+                    <li data-slide-to="1" data-target="#carousel1">
+                    </li>
+                    <li data-slide-to="2" data-target="#carousel1">
+                    </li>
+                </ol>
+                <div class="carousel-inner" >
+
+                    <div class="item active">
+                        <img alt="" src="/uploads/1.jpg"   />
+                        <div class="carousel-caption">
+                            <h4></h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="item ">
+                        <img alt="" src="/uploads/4.jpg"  />
+                        <div class="carousel-caption">
+                            <h4></h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item ">
+                        <img alt="" src="/uploads/5.jpg"  />
+                        <div class="carousel-caption">
+                            <h4></h4>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                </div> <a data-slide="prev" href="#carousel1" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel1" class="right carousel-control">›</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row row-fluid">
+    <div class="col-md-6">
+        <h2>电影</h2>
+        <p>
+            @{
+               var grid = new WebGrid(Model.MovieModel, rowsPerPage: 3, defaultSort: "ID");
+
+            @grid.GetHtml(tableStyle: "table table-hover table-responsive",
+            headerStyle: "thead", 
+            footerStyle: "tfoot",
+            rowStyle: "th", 
+            alternatingRowStyle: "altRow",
+            selectedRowStyle: "selectedRow", 
+            columns: grid.Columns
+            (
+
+                  grid.Column("mTitle", header: "电影名 ↓"),
+                  grid.Column("mReleaseDate", header: "日期",format: @<text>@item.mReleaseDate.ToString("yyyy-MM-dd")</text>), 
+                  grid.Column("mGenre", header: "类型"), 
+                  grid.Column("mCountry",header:"国家")
+            ));
+                                                                                                                                                                                                                                                                                                                                                           
+
+            }
+
+
+        </p>
+
+
+        <p><a class="btn btn-warning" href="/Movies/Index">查看更多 &raquo;</a></p>
+        
+    </div>
+    <div class="col-md-6">
+        <h2>歌曲</h2>
+        <p>
+            @{
+            var grid1 = new WebGrid(Model.SongModel, rowsPerPage: 5, defaultSort: "ID");
+
+            @grid1.GetHtml(
+            tableStyle: "table table-hover", headerStyle: "thead", footerStyle: "tfoot",
+    rowStyle: "th", alternatingRowStyle: "altRow", selectedRowStyle: "selectedRow", columns: grid1.Columns
+    (
+
+                    grid1.Column("sTitle", header: "电影名 ↓"),
+
+                                 grid1.Column("sReleaseDate", header: "日期",
+                        format: @<text>@item.sReleaseDate.ToString("yyyy-MM-dd")</text>),
+                            grid1.Column("sGenre", header: "类型"),
+                            grid1.Column("sCountry",header:"国家")
+                            )
+                            );
+                                                                                                                                                                                                                                                                                                                                                                                             
+
+        }
+
+
+    <p><a class="btn btn-warning" href="/Songs/Index">查看更多 &raquo;</a></p>
+        
+</div>
+
+</div>

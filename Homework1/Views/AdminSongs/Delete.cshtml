@@ -1,0 +1,89 @@
+﻿@model Homework1.Models.Song
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Song</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.sTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sGenre)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sGenre)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sReleaseDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sReleaseDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sphoto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sphoto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sContent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sContent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.sLink)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.sLink)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
